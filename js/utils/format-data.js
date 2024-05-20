@@ -14,3 +14,18 @@ export function formatDate(date, options = defaultDateOpctions) {
 export function formatTemp(value) {
     return `${Math.floor(value)}°`
 }
+
+export function formatWeeklist(rawData) {
+    
+    const weekList = []
+    let dayLsit = []
+
+    rawData.forEach((item, index)=> {
+        dayLsit.push(item)
+        if((index + 1) % 8 === 0){
+            weekList.push(dayLsit)
+            dayLsit = []
+        }
+    })
+    return weekList
+}
