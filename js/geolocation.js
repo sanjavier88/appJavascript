@@ -47,3 +47,29 @@ export async function getLatLon(options = defaultOpctions) {
     }
 
 }
+
+// export async function getMinMaxHumid(options = defaultOpctions) {
+
+//     try{
+//         const {main: { tempMin: temp_min,tempMax: temp_max, humidity: humidity}} = await getCurrentPosition(options)
+//         return {temp_min, temp_max, humidity}
+
+//     }catch{
+//         return {isError: true, temp_min: null, temp_max:null, humidity: null}
+
+//     }
+
+// }
+
+// export async function getWind(options = defaultOpctions) {
+
+//     try{
+//         const {wind: { velodidad: speed}} = await getCurrentPosition(options)
+//         return {speed}
+
+//     }catch{
+//         return {isError: true, speed:null}
+
+//     }
+
+// }

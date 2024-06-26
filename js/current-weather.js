@@ -86,11 +86,11 @@ const conditionCode = String(weather.weather[0].id).charAt(0)
 setBackground($app,conditionCode , solarStatus(sunriseTime,  sunsetTime))
 
 }
-
+//crear lo selectores o  variables
 export default async function currentWeather() {
     //geo // api -weather // config
-    console.log('Esto pasa antes de getCurrentPosition')
-    const {lat,lon, isError} = await getLatLon()
+    // console.log('Esto pasa antes de getCurrentPosition')
+    const {lat,lon,temp_max,temp_min,humidity,speed,isError} = await getLatLon()
     if(isError) return console.log('Ah ocurrido un error ubicandote')
     // console.log(lat, lon)
    
@@ -104,9 +104,12 @@ export default async function currentWeather() {
     //     console.log(message)
     //  })
      
-     console.log('Esto pasa despues de getCurrentPosition')
+    //  console.log('Esto pasa despues de getCurrentPosition')
 
-    const {isError: currentWeatherError, data: weather} = await getCurrentWeather(lat, lon)
+    // const {temp_min,temp_max} = await getMinMaxHumid()
+    // if(isError) return console.log('Ah ocurrido un error ubicandote')
+    
+    const {isError: currentWeatherError, data: weather} = await getCurrentWeather(lat, lon, temp_min,temp_max,humidity,speed )
     if(currentWeatherError) return console.log('oh a ocurrido un error trayendo los datos del clima')
     configCurrentWeather(weather)
     // console.log(weather)

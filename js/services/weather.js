@@ -30,3 +30,18 @@ export async function getWeeklytWeather(lat, lon){
     }
     
 }
+
+// export async function getAggregates(lat, lon, temp_max, temp_min, humidity){
+
+//     const response = await fetch(`${BASE_API}forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+//     if(!response.ok) return{
+//         isError: true,
+//         data:null
+//     }
+//     const data = await response.json()
+//     return {
+//         isError: false,
+//         data,
+//     }
+
+// }
