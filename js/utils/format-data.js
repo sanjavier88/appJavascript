@@ -15,6 +15,22 @@ export function formatTemp(value) {
     return `${Math.floor(value)}°`
 }
 
+export function formatTempMax(value) {
+    return `Max: ${Math.floor(value)}°`
+}
+
+export function formatTempMin(value) {
+    return `Min: ${Math.floor(value)}°`
+}
+
+export function  formatHumidity(value) {
+    return `Humedad: ${value}%`
+}
+
+export function formatWindSpeed(value) {
+    return `Viento: ${Math.floor(value)}km-h`
+}
+
 export function formatWeeklist(rawData) {
     
     const weekList = []

@@ -1,5 +1,5 @@
 // import weather from '../data/current-weather.js'
-import {formatDate, formatTemp} from './utils/format-data.js'
+import {formatDate, formatTemp, formatTempMax,formatTempMin, formatWindSpeed, formatHumidity} from './utils/format-data.js'
 import {weatherConditionCodes} from './constants.js'
 import {getLatLon} from './geolocation.js'
 import {getCurrentWeather} from './services/weather.js'
@@ -11,6 +11,7 @@ function setCurrentCity($e, city){
     $e.textContent = city
 
 }
+
 
 
 function setCurrentDate($el) {
@@ -56,7 +57,21 @@ function showCurrentWeather($app, $loader){
 }
 
 
+function setCurrentTempMax($el, tempMax) {
+    $el.textContent = formatTempMax(tempMax)
+}
 
+function setCurrentTempMin($el, tempMin) {
+    $el.textContent = formatTempMin(tempMin)
+}
+
+function setCurrentWindSpeed($el, windSpeed) {
+    $el.textContent = formatWindSpeed( windSpeed)
+}
+
+function setCurrentHumidity($el,humidity) {
+    $el.textContent = formatHumidity( humidity)
+}
 
 
 //pARECIDO A LOS EVENTlISTENER(selectores)
@@ -77,6 +92,23 @@ setCurrentCity($currentWeatherCity, city)
 const $currentWeathertemp = document.querySelector('#current-weather-temp')
 const temp = weather.main.temp
 setCurrentTemp($currentWeathertemp, temp)
+
+const $currentWeathertempMax = document.querySelector('#temp-max')
+const tempMax = weather.main.temp_max
+setCurrentTempMax($currentWeathertempMax, tempMax)
+
+const $currentWeatherWindSpeed = document.querySelector('#wind')
+const windSpeed = weather.wind.speed
+setCurrentWindSpeed($currentWeatherWindSpeed, windSpeed )
+
+const $currentWeathertempMin = document.querySelector('#temp-min')
+const tempMin = weather.main.temp_min
+setCurrentTempMin($currentWeathertempMin, tempMin )
+
+const $currentWeatherHumidity = document.querySelector('#humidity')
+const humidity = weather.main.humidity
+setCurrentHumidity($currentWeatherHumidity, humidity )
+
 
 //background
 const sunriseTime = new Date( weather.sys.sunrise * 1000)
